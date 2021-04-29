@@ -1,0 +1,110 @@
+import React from "react";
+import ReactDOM from "react-dom";
+
+
+
+
+class First extends React.Component{
+constructor(props){
+  super(props);
+  this.state ={
+    text1: '',
+    text2: '',
+    multi: 0,
+    sum: []
+  };
+}
+  onChange = (e) => {
+    this.setState({text1: e.target.value});
+  }
+  onChange2 = (e) => {
+    this.setState({text2: e.target.value});
+  }
+  handleSubmit = (e) => {
+     e.preventDefault();
+     const value1 = this.state.text1;
+     const value2 = this.state.text2;
+     this.setState({
+       multi: value1 * value2
+     });
+     if(this.state.multi != 0){
+     this.state.sum.push(this.state.multi);
+   }
+     console.log(this.state.sum);
+     this.state.sum.reduce(function (a, b) {
+       var c = a + b;
+       console.log(c);
+       return c;
+
+      });
+
+
+
+   }
+  render(){
+    return(
+        <div>
+            <form onSubmit={this.handleSubmit.bind(this)}>
+                <div className="input-group">
+                  <input className="input-group-field" type="text" onChange={this.onChange.bind(this)} value={this.state.text1} />
+                    <input className="input-group-field" type="text" onChange={this.onChange2.bind(this)} value={this.state.text2} />
+                  <div className="input-group-button">
+                    <button className="button" type="submit">Submit</button>
+                  </div>
+
+                </div>
+              </form>
+              <h4>{this.state.multi}</h4>
+
+          </div>
+    );
+  }
+}
+
+class Segment extends React.Component{
+  constructor(props){
+    super(props);
+    this.state ={
+      data: []
+    };
+  }
+  addChild() {
+    let data = this.state.data.push( <First key = {this.state.data} multi = {this.props.multi} /> );
+    this.setState({
+      data: this.state.data
+    });
+
+}
+
+  render(){
+    return(
+      <div>
+          {this.state.data}
+          <button className="button" onClick = {this.addChild.bind(this)} type="submit">Add</button>
+
+      </div>
+    );
+  }
+}
+
+class App extends React.Component{
+  render(){
+    return(
+      <div>
+        <First />
+        <Segment />
+      </div>
+    );
+  }
+}
+
+
+document.addEventListener("DOMContentLoaded", function(){
+    ReactDOM.render(
+    <div>
+    <App />
+    </div>,
+    document.getElementById('app')
+
+   );
+});

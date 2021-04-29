@@ -1,0 +1,76 @@
+.input-group{
+  width: 450px;
+}
+.input-group-field, .input-group-button{
+  width: 15%;
+  display: inline-block;
+  clear: both;
+}
+.head1{
+  display: inline-block;
+  clear: both;
+  margin-left: 15px;
+}
+.a11{
+  padding-left: 15px;
+}
+.dane1{
+  clear: both;
+  width:97%;
+  display: block;
+  margin: 0 auto;
+  font-size: 14px;
+}
+.middle{
+  border: 1px solid blue;
+}
+.dane2{
+  width: 60px;
+  font-size: 14px;
+}
+.dane3{
+  width: 90%;
+  font-size: 14px;
+}
+.dane4{
+  width: 75px;
+}
+.topleft, .middle, .topright, .bottomleft, .bottomright, .sumleft, .sumright, .a1{
+  width: 100%;
+  margin: 0 auto;
+  border: 1px solid forestgreen;
+  height: 300px;
+  border-radius: 7px;
+  padding: 3px;
+}
+.a1{
+  height: auto;
+  min-height: 300px;
+}
+.middle, .a1, .a0, .middle2{
+  margin-top: 1%;
+}
+.middle2{
+  max-height: 200px;
+}
+.input1{
+  margin-top: 100px;
+  width: 400px;
+}
+.a1 .btn{
+  margin-left: 2px;
+}
+@media print{
+  body{
+    font-size: 17px;
+  }
+  button{
+    display: none;
+  }
+  .topleft, .middle, .topright, .bottomleft, .bottomright, .sumleft, .sumright, .a1{
+ border: none;
+  }
+  input{
+    border: 0;
+  }
+}
